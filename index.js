@@ -1,10 +1,10 @@
-let backgroundImageElement = document.querySelector('body');
-
-let fileInputElement = document.querySelector('input');
-
-let image = fileInputElement.files[0];
-
-// TODO: Delete <input> element when image submited
-
-backgroundImageElement.style.backgroundImage = `url("${image}")`;
+function setBackgroundImage() {
+let file = document.querySelector('input').files[0];
+        let reader  = new FileReader();
+        reader.onload = function(e)  {
+	    let backgroundImageElement = document.querySelector('body');
+	    backgroundImageElement.style.backgroundImage = `url("${file}")`;
+	}
+	reader.readAsDataURL(file);
+}
 
